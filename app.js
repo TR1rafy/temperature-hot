@@ -6,14 +6,14 @@ submitBtn.addEventListener('click', function(){
     .then(Response=>Response.json()
     .then(data=> {
     const cityName= data.name;
-    const temp = data.main.temp;
-    const tem= temp-273.15;
+    const tem = data.main.temp;
+     const temp= tem-273.15;
     const description= data.weather[0].description;
 
     document.getElementById('city').innerText=cityName;
-    document.getElementById('temp').innerText=temp;
+    document.getElementById('temp').innerText=temp.toFixed(2);
     document.getElementById('lead').innerText= description;
 
     }))
-    .catch(res=> alert("please enter correct city name"))
+    
 })
